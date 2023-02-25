@@ -1,17 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
-const heading = React.createElement('h1', {}, 'Hello');
-const heading2 = React.createElement('h2', {}, 'Inner');
-const heading1 = React.createElement(
-  'h1',
-  { id: 'container', style: { color: 'red' } },
-  'Outside container'
+const navBar = (
+  <nav>
+    <img
+      id='logo'
+      src='https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'
+      alt='React logo'
+    />
+    <input id='search' type='text' placeholder='Search here' />
+    <ul>
+      <li>Home</li>
+      <li>About us</li>
+      <li>User</li>
+    </ul>
+  </nav>
 );
-const container = React.createElement('div', { id: 'container' }, [
-  heading,
-  heading2,
-]);
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const HeaderComponent = () => {
+  return <div>{navBar}</div>;
+};
 
-root.render([heading1, container]);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HeaderComponent />);
